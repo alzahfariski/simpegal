@@ -98,6 +98,29 @@ def kategori(request):
     else:
         return render(request,'eror_404.html')
 
+# def edit_kategori(request):
+#     kategori = models.kategori.objects.get(id = id)
+#     data = {
+#         'nama':kategori.nama,
+#         'sifat':kategori.sifat,
+#         'jenis':kategori.jenis,        
+#     }
+#     form = postkategori(request.POST)
+#     if request.method == 'POST':
+#         if form.is_valid():
+#             form.save()
+#             return redirect('kategori_admin')
+#     context = {
+#         'form':form,
+#         'kategori':kategori,
+#     }
+#     return render(request, context)
+
+def hapuskategori(request, delete_id):
+    models.kategori.objects.filter(id = delete_id).delete()
+    return redirect('kategori_admin')
+
+
 def konfirmasi(request):
     context={}
     if request.user.is_staff == 1:

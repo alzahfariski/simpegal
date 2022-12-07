@@ -82,15 +82,17 @@ def hapusberita(request, delete_id):
 
 def kategori(request):
     if request.user.is_staff == 1:
+        posts = models.kategori.objects.all()
         post_kategori = postkategori()        
         if request.method =='POST':
             post_kategori = postkategori(request.POST)           
             if post_kategori.is_valid():                               
                 post_kategori.save()
-                return redirect ('berita_admin')                             
+                return redirect ('kategori_admin')                             
         context={
-            'page_title':'tambah berita',
-            'post_artikel':post_kategori,         
+            'page_title':'kategori',
+            'post_kategori':post_kategori,  
+            'posts':posts,       
         }        
         return render(request, 'admin/kategori.html', context)
     else:

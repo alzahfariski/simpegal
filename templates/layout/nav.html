@@ -1,0 +1,28 @@
+{%load static%}
+ <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-transparent position-fixed w-100">
+    <div class="container">
+      <a class="navbar-brand" href="#hero">SIMPEGAL</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item mx-2">
+            <a class="nav-link" aria-current="page" href="#hero">Beranda</a>
+          </li>    
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="#layanan">Layanan</a>
+          </li> 
+          <li class="nav-item mx-2">
+            <a class="nav-link" href="#berita">Berita</a>
+          </li>         
+        </ul>
+        <div>
+          <a href="{% url 'login'%}" class="btn btn-outline-light  me-md-2" style=" --bs-btn-padding-x: 1rem; ">Masuk</a>
+          <a href="{% url 'register'%}" class="btn btn-primary" style=" --bs-btn-padding-x: 1rem;">Daftar</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  

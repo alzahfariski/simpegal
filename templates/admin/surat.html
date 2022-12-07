@@ -1,0 +1,94 @@
+{% extends 'layout/stis.html' %}
+
+{% block content %}
+
+<body>
+
+          <ul class="sidebar-menu">
+            <li class="menu-header">Dashboard</li>
+            <li><a class="nav-link" href="{% url 'dashboard_admin'%}"><i class="fas fa-fire"></i><span>Dashboard</span></a></li>
+
+            <li class="menu-header">Pengaduan</li>
+            <li class="dropdown active">
+              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Data
+                  Pengaduan</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="{% url 'pengaduan_admin'%}">pengaduan masyarakat</a></li>
+                <li><a class="nav-link" href="{% url 'kategori_admin'%}">kategori pengaduan</a></li>
+                <li><a class="nav-link" href="{% url 'konfirmasi_admin'%}">pengaduan terkonfirmasi</a></li>
+                <li class="active"><a class="nav-link" href="{% url 'surat_admin'%}">surat pengaduan</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-header">Berita</li>
+            <li><a href="{% url 'berita_admin'%}" class="nav-link"><i class="fas fa-th-large"></i> <span>Data Berita</span></a></li>
+          </ul>
+
+        </aside>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-header">
+            <h1>Data Surat</h1>
+          </div>
+
+          <div class="section-body">
+            <div class="row">
+             <div class="col-12">
+               <div class="card">
+                 <div class="card-header">
+                   <h4>pengaduan</h4>
+                   <div class="card-header-form">
+                     <form>
+                       <div class="input-group">
+                         <input type="text" class="form-control" placeholder="Search">
+                         <div class="input-group-btn">
+                           <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                         </div>
+                       </div>
+                     </form>
+                   </div>
+                 </div>                  
+                 <div class="card-body p-0">
+                   <div class="table-responsive">
+                     <table class="table table-striped">
+                       <tr>
+                         <th>
+                           no
+                         </th>
+                         <th>Nama</th>
+                         <th>Keterangan</th>                        
+                         <th>Tanggal</th>
+                        
+                         <th>Action</th>
+                       </tr>
+                       
+                       <tr>
+                         <td>
+                           id
+                         </td>
+                         <td>nama</td>
+                         <td class="align-middle">
+                           keterangan
+                         </td>                        
+                         <td>tanggal</td>
+                       
+                         <td><a href="#" class="btn btn-warning">Edit</a>
+                          <a href="#" class="btn btn-danger">hapus</a>
+                          <a href="#" class="btn btn-info">cetak</a></td>
+                       </tr>
+                       
+                     </table>
+                   </div>
+                 </div>
+                 
+               </div>
+             </div>
+           </div>
+         </div>
+        </section>
+      </div>
+
+  {% endblock content %}

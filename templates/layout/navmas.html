@@ -1,0 +1,23 @@
+{%load static%}
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'beranda'%}"><span class="text-primary">SIMPEGAL</span></a>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'beranda'%}">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'ajuan'%}">Ajukan Pengaduan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'bantuan'%}">Bantuan</a>
+                    </li>                   
+                </ul>
+                <a href="{%url 'logout_user'%}" class="btn btn-danger" style=" --bs-btn-padding-x: 1rem;">keluar</a>
+            </div>
+        </div>
+    </nav>

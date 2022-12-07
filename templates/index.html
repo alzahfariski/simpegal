@@ -1,0 +1,188 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+
+<section id="hero">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-md-6 hero-tagline my-auto">
+                <h1 class="lh-base fw-bold">Sistem Informasi Pengaduan Gangguan Lalu Lintas</h1>
+                <p>membantu mengatasi gangguan pada lalu lintas dan membuat anda lebih nyaman dalam berkendara</p>
+                <a href="{% url 'login'%}" class="btn btn-primary" style="--bs-btn-padding-y: 1rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: .85rem;" >Ajukan pengaduan</a>
+            </div>            
+        </div>
+        <img src="../static/asset/banner.jpg" alt="" class="position-absolute end-0 bottom-0 banner img-hero">        
+    </div>    
+</section>
+<section id="tentang">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2>Tentang SIMPEGAL</h2>
+                <p class="p-3">Sistem Informasi Pengaduan Gangguan Lalu Lintas <span class="fw-semibold">SIMPEGAL</span> Merupakan sistem yang di ciptakan
+                 berdasarkan UU No. 22 Tahun 2009 tentang terwujudnya <br> pelayanan lalu lintas jalan yang aman, selamat, dan 
+                 lancar merupakan rangka untuk mendukung pembangunan ekonomi dan pengembangan wilayah </p>
+                 <p><span class="fw-semibold">SIMPEGAL</span>  dapat membantu masyarakat kota bengkulu untuk melakukan pengaduan terhadap
+                     gangguan lalu lintas yang di alami saat berkendara.
+                 </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="layanan">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2>Fitur Layanan</h2>
+                <p>Sistem informasi pengaduan gangguan lalu lintas</p>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-4 text-center">
+                <div class="card-layanan">
+                    <div class="circle-icon position-relative mx-auto">
+                        <i class="uil uil-envelope-send position-absolute top-50 start-50 translate-middle kirim"></i>
+                    </div>
+                    <h3 class="mt-4">kirim aduan</h3>
+                    <p class="mt-3">tempat aduan masyarkat pada gangguan lalu lintas</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="card-layanan">
+                    <div class="circle-icon position-relative mx-auto">
+                        <i class="uil uil-envelope-send position-absolute top-50 start-50 translate-middle kirim"></i>
+                    </div>
+                    <h3 class="mt-4">Cek aduan</h3>
+                    <p class="mt-3">cek pengaduan yang sebelumnya telah terkirim</p>
+                </div>
+            </div>
+            <div class="col-md-4 text-center">
+                <div class="card-layanan">
+                    <div class="circle-icon position-relative mx-auto">
+                        <i class="uil uil-envelope-send position-absolute top-50 start-50 translate-middle kirim"></i>
+                    </div>
+                    <h3 class="mt-4">statistik aduan</h3>
+                    <p class="mt-3">menampilkan statistic dari aduan</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="topik" class="d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2>Topik Aduan</h2>
+                <p><span class="sub-title">SIMPEGAL dapat melakukan beberapa aduan</span></p>
+            </div>
+        </div>
+        <div class="row"> 
+                      
+            <div class="card text-center mx-auto mb-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">nama</h5>
+                    <h6 class="card-subtitle mb-2">jenis</h6>
+                </div>
+            </div>
+            <div class="card text-center mx-auto mb-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">nama</h5>
+                    <h6 class="card-subtitle mb-2">jenis</h6>
+                </div>
+            </div>
+            <div class="card text-center mx-auto mb-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">nama</h5>
+                    <h6 class="card-subtitle mb-2">jenis</h6>
+                </div>
+            </div>
+                                 
+        </div>
+    </div>    
+    
+</section>
+<section id="berita">
+    <div class="container">
+        <div class="row mb-5">
+           <div class="col-12 text-center">
+            <h2>Berita Kota Bengkulu</h2>
+            <p>SIMPEGAL BERITA</p>
+           </div>
+        </div>
+        <div class="row">
+            {% for berita in berita %}
+            <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-evenly">
+                <div class="card p-2" style="width: 22rem;">
+                    <img src="{{berita.gambar.url}}" alt="" style="max-height: 150px;">
+                    <div class="card-body">
+                        <h4>{{berita.judul}}</h4>
+                        <p class="mb-4">{{berita.sumber}}</p>
+                    </div>
+                    
+                    <div class="card-detail text-center">
+                        <span>
+                            <button type="button" class="btn" style="color:#5E5DBA;">Lihat berita</button>
+                        </span>                        
+                    </div>
+                </div>
+            </div>            
+            {%endfor%}
+        </div>
+    </div>
+</section>
+<section id="statistik" class="d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2>Statistik Aduan</h2>
+                <p><span class="sub-title">SIMPEGAL pengaduan statistik</span></p>
+            </div>
+        </div>
+        <div class="row">           
+            <div class="card text-center mx-auto mb-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">jumlah</h5>
+                    <h6 class="card-subtitle mb-2">Total pengaduan</h6>
+                </div>
+            </div>         
+            <div class="card text-center mx-auto mb-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">jumlah</h5>
+                    <h6 class="card-subtitle mb-2">Pengaduan Diproses</h6>
+                </div>
+            </div>         
+            <div class="card text-center mx-auto mb-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">jumlah</h5>
+                    <h6 class="card-subtitle mb-2">pengaduan Selesai</h6>
+                </div>
+            </div>         
+        </div>
+    </div>
+</section> 
+<footer class="d-flex align-items-center position-relative">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 d-flex align-items-center justify-content-lg-start justify-content-center">
+                    <a href="#hero">SIMPEGAL</a>
+                </div>
+                <div class="col-md-5 d-flex justify-content-evenly justify-content-center">
+                    <a href="#hero">Beranda</a>
+                    <a href="#tentang">tentang</a>
+                    <a href="#layanan">layanan</a>
+                    <a href="#topik">topik</a>
+                    <a href="#berita">Berita</a>
+                    <a href="#statistik">statistik</a>
+                </div>
+            </div>
+            <div class="row position-absolute copyrght start-50 translate-middle">
+                <div class="col-12">
+                    <p class="text-center">copyrght &copy; SIMPEGAL</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock content %}
+    
+    

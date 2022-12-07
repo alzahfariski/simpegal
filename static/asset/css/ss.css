@@ -1,0 +1,226 @@
+.navbar{
+   z-index: 3;
+}
+.navbar-color{
+   background-color: #5E5DBA;
+   transition: all ease-in-out .4s;   
+}
+*{
+   z-index: 2;
+}
+#hero{
+   background : linear-gradient(160deg, #B3B3F3, #5E5DBA);
+   height: 100vh;
+   width: 100%;
+}
+.bg-transparent{
+   transition: all ease-in-out .4s;
+}
+.banner{
+   height: 100%;
+}
+.hero-tagline{
+   color: #fff;
+}
+.hero-tagline p{
+   width: 75%;
+   margin-bottom: 60px;
+   margin-top: 20px;
+   line-height: 30px;
+}
+#tentang{
+   padding: 80px 0;
+}
+#layanan{
+   padding: 80px 0;
+}
+#berita{
+   padding: 80px 0;
+}
+h2{
+   font-size: 48px;
+   font-weight: 500;
+   color: #5E5DBA;
+}
+.card-layanan{
+   width: 100%;
+   height: 313px;
+   border-radius: 5px;
+   background-color: #fff;
+   padding: 40px;
+   box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.05);
+    transition: all .2s ease-in;  
+}
+.circle-icon{
+   width: 70px;
+   height: 70px;
+   border-radius: 50%;
+   background-color: #B3B3F3;
+   transition: all .1s ease-in;
+} 
+.card-layanan h3 {
+   color: #5E5DBA;
+   font-size: 24px;
+   transition: all .2s ease-in;    
+}
+.card-layanan p {
+   color: #000;
+   font-size: 14px;
+   transition: all .3s ease-in;
+}
+.card-layanan:hover{
+   width: 100%;
+   height: 313px;
+   border-radius: 5px;
+   background-color: #5E5DBA;
+   padding: 40px;
+   box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.05);
+   transition: all .2s ease-in;  
+}
+.card-layanan:hover .circle-icon{   
+   background-color: #fff;
+   transition: all .2s ease-in;  
+}
+.card-layanan:hover h3 {
+   color: #fff;
+   font-size: 24px;    
+   transition: all .2s ease-in;  
+}
+.card-layanan:hover p {
+   color: #fff;
+   font-size: 14px;
+   transition: all .2s ease-in;  
+}
+#topik{
+   background-image: url(../tabutd.jpg);
+   height: 100vh;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+#topik h2{
+   color: #fff;
+   font-size: 48px;
+   font-weight: 600;
+   line-height: 72px;
+   text-align: center;
+}
+#topik p{
+   color: #fff;
+   font-size: 24px;
+   font-weight: 400;
+   line-height: 36px;
+   text-align: center;
+}
+#berita .card{
+   height: 350px;
+   border: none;
+}
+card-body h4{
+   color: #000;
+   font-weight: 600;
+   font-size: 24px;
+   line-height: .8rem;
+}
+.card-body p{
+   color: #141414;
+   font-weight: 400;
+   font-size: 14px;
+}
+.card:hover{
+   background: #5E5DBA;
+   box-shadow: 0 10px 20px rgba(0, 0, 0, .25);
+   transition: all ease-in-out .3s;
+}
+.card:hover .card-body h4{
+   color: #fff;
+   transition: all ease-in-out .3s;
+}
+.card:hover .card-body h5{
+   color: #fff;
+   transition: all ease-in-out .3s;
+}
+.card:hover .card-body h6{
+   color: #fff;
+   transition: all ease-in-out .3s;
+}
+.card:hover .card-body p{
+   color: #fff;
+   transition: all ease-in-out .3s;
+}
+.card-detail{
+   position: absolute;
+   background-color: #fff;
+   right: 0;
+   left: 0;
+   bottom: 10px;
+}
+.card:hover .berita-detail{
+   background-color: #fff;
+}
+.card-detail button{
+   font-weight: 600;
+}
+#statistik{
+  background-image: url(../topik.png);
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#statistik h2{
+   color: #fff;
+   font-size: 48px;
+   font-weight: 600;
+   line-height: 72px;
+   text-align: center;
+}
+#statistik p{
+   color: #fff;
+   font-size: 24px;
+   font-weight: 400;
+   line-height: 36px;
+   text-align: center;
+}
+footer{  
+   width: 100%;
+   height: 200px;  
+   background: #000;
+}
+.copyrght{
+   bottom: 1%;
+   color: #fff;
+   font-size: 14px;
+   line-height: 21px;
+}
+footer a{
+   text-decoration: none;
+   font-size: 2opx;
+   line-height: 30px;
+   color: #fff;
+}
+@media screen and (max-width : 922px){
+   #berita .card{
+      margin-top: 5px;
+   }
+   
+}
+@media screen and (max-width : 576px){
+   .img-hero{
+      width: 75%;
+      height: auto;
+   }
+   .hero-tagline h1{
+      line-height: 52px;
+   }
+   h2{
+      font-size: 34px;
+   }
+   .sub-title{
+      font-size: 17px;
+   }
+   .card-layanan{
+      margin: 10px 0;
+   }
+}
+@media screen and (max-width : 350px){
+
+}

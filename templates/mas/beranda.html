@@ -1,0 +1,182 @@
+{% extends 'layout/basemas.html' %}
+{% block content %}
+<section>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>       
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../../static/asset/SIMPANG LIMA BENGKULU.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption">
+                    <h5>Simpegal</h5>
+                    <p>Sistem Informasi Pengaduan Gangguan Lalu Lintas Kota Bengkulu Merupakan Sistem Informasi Yang Menangani Pengaduan Gangguan Lalu Lintas Dari Masyarakat</p>
+                    <p><a href="{% url 'ajuan'%}" class="btn btn-primary mt-3">Ajukan Pengaduan</a></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="../../static/asset/tabutd.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption">
+                    <h5>Panduan Penggunaan</h5>
+                    <p>Berisi Panduan Penggunaan SIMPEGAL</p>
+                    <p><a href="{% url 'bantuan'%}" class="btn btn-primary mt-3">Bantuan</a></p>
+                </div>
+            </div>       
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+<section id="berita">
+    <div class="container">
+        <div class="row mb-5">
+           <div class="col-12 text-center">
+            <h2>Berita Kota Bengkulu</h2>
+            <p>SIMPEGAL BERITA</p>
+           </div>
+        </div>
+        <div class="row">
+            {% for row in posts %}
+            <div class="col-lg-4 col-md-6 mb-4 d-flex justify-content-evenly">
+                <div class="card p-2" style="width: 22rem;">
+                    <img src="{{row.gambar.url}}" alt="" style="max-height: 150px;">
+                    <div class="card-body">
+                        <h4>{{row.judul|truncatewords:5}}</h4>
+                        <p class="mb-4">{{row.sumber|truncatewords:5}}</p>
+                    </div>
+                    
+                    <div class="card-detail text-center">
+                        <span>
+                            <button type="button" class="btn" style="color:#5E5DBA;">Lihat berita</button>
+                        </span>                        
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="team section-padding" id="team">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-header text-center pb-5">
+                    <h2>kategori Simpegal</h2>
+                    <p>Laporkan Pengaduan <br>Berdasarkan kategori yang tersedia</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card text-center">
+                    <div class="card-body">                        
+                        <h4 class="card-title py-2">Nama kategori</h4>
+                        <p class="card-text">jenis</p>                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card text-center">
+                    <div class="card-body">                       
+                        <h4 class="card-title py-2">Nama kategori</h4>
+                        <p class="card-text">Jenis</p>                      
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card text-center">
+                    <div class="card-body">                       
+                        <h4 class="card-title py-2">Nama kategori</h4>
+                        <p class="card-text">Jenis</p>                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card text-center">
+                    <div class="card-body">                        
+                        <h4 class="card-title py-2">Nama kategori</h4>
+                        <p class="card-text">Jenis</p>                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="pengaduan section-padding" id="pengaduan">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-header text-center pb-5">
+                    <h2>Daftar Pengaduan</h2>                   
+                </div>
+            </div>
+        </div>
+        
+        <table class="table table-primary table-striped">
+            <thead>
+              <tr>
+                <th scope="col">NO</th>
+                <th scope="col">Pengaduan</th>
+                <th scope="col">Tanggal</th>
+                <th scope="col">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>pohon tumbang</td>
+                <td>20 november 2022</td>
+                <td><button class="btn btn-primary">detail</button> </td>
+              </tr>
+              
+            </tbody>
+          </table>
+    </div>
+</section>
+<section class="riwayat section-padding" id="riwayat">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-header text-center pb-5">
+                    <h2>Riwayat Pengaduan Anda</h2>                   
+                </div>
+            </div>
+        </div>
+        
+        <table class="table table-primary table-striped">
+            <thead>
+              <tr>
+                <th scope="col">NO</th>
+                <th scope="col">Pengaduan</th>
+                <th scope="col">Tanggal</th>
+                <th scope="col">status</th>
+                <th scope="col">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>pohon tumbang</td>
+                <td>20 november 2022</td>
+                <td><button class="btn btn-warning">proses</button> </td>
+                <td><button class="btn btn-primary">detail</button> </td>
+              </tr>
+              
+            </tbody>
+          </table>
+    </div>
+</section>
+
+
+{% endblock content %}

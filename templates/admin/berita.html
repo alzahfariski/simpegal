@@ -1,0 +1,103 @@
+{% extends 'layout/stis.html' %}
+
+{% block content %}
+
+          <ul class="sidebar-menu">
+            <li class="menu-header">Dashboard</li>
+            <li><a class="nav-link" href="{% url 'dashboard_admin'%}"><i class="fas fa-fire"></i><span>Dashboard</span></a></li>
+
+            <li class="menu-header">Pengaduan</li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Data
+                  Pengaduan</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="{% url 'pengaduan_admin'%}">pengaduan masyarakat</a></li>
+                <li><a class="nav-link" href="{% url 'kategori_admin'%}">kategori pengaduan</a></li>
+                <li><a class="nav-link" href="{% url 'konfirmasi_admin'%}">pengaduan terkonfirmasi</a></li>
+                <li><a class="nav-link" href="{% url 'surat_admin'%}">surat pengaduan</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-header">Berita</li>
+            <li class="active"><a href="{% url 'berita_admin'%}" class="nav-link"><i class="fas fa-th-large"></i> <span>Data Berita</span></a></li>
+          </ul>
+
+        </aside>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-header">
+            <h1>Data berita</h1>
+          </div>
+          <div class="col-12 col-md-6 col-lg-6">            
+              <div class="buttons">
+                  <a href="{% url 'tambah_berita'%}" class="btn btn-icon btn-primary"><i class="far fa-edit"> Tambah data berita</i></a>
+                </div>
+            </div>
+        
+          <div class="section-body">
+            <div class="row">
+             <div class="col-12">
+               <div class="card">
+                 <div class="card-header">
+                   <h4>Berita</h4>
+                   <!-- <div class="card-header-form">
+                     <form>
+                       <div class="input-group">
+                         <input type="text" class="form-control" placeholder="Search">
+                         <div class="input-group-btn">
+                           <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                         </div>
+                       </div>
+                     </form>
+                   </div> -->
+                 </div>                  
+                 <div class="card-body p-0">
+                   <div class="table-responsive">
+                     <table class="table table-striped">
+                       <tr>
+                         <th>
+                           no
+                         </th>
+                         <th>judul</th>
+                         <th>sumber</th>
+                         <th>Foto</th>
+                         <th>Tanggal</th>                       
+                         <th>Action</th>
+                       </tr>
+                       {% for row in posts %}
+                       <tr>
+                         <td>
+                          {{forloop.counter}}
+                         </td>
+                         <td>{{row.judul}}</td>
+                         <td class="align-middle">
+                           {{row.sumber|truncatewords:5}}
+                         </td>
+                         <td>
+                           <img alt="" src="{{row.gambar.url}}" class="rounded-circle" width="35" data-toggle="tooltip" title="{{row.judul}}">
+                         </td>
+                         <td>{{row.tanggal}}</td>
+                         
+                         <td>
+                        
+                          <a href="{% url 'edit_berita' row.id %}" class="btn btn-warning">edit</a>
+                          <a href="{% url 'detail_berita' row.slug %}" class="btn btn-primary">Detail</a>
+                          <a href="{% url 'hapusberita' row.id %}" class="btn btn-danger" title="hapus">Hapus</a>                          
+                        </td>
+                       </tr>
+                       {% endfor %}
+                     </table>
+                   </div>
+                 </div>
+                 
+               </div>
+             </div>
+           </div>
+         </div>
+        </section>
+      </div>
+      
+  {% endblock content %}

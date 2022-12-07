@@ -1,0 +1,56 @@
+{% extends 'layout/stis.html' %}
+{% load static %}
+{% block content %}
+
+<ul class="sidebar-menu">
+    <li class="menu-header">Dashboard</li>
+    <li><a class="nav-link" href="{% url 'dashboard_admin'%}"><i class="fas fa-fire"></i><span>Dashboard</span></a></li>
+
+    <li class="menu-header">Pengaduan</li>
+    <li class="dropdown active">
+      <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Data
+          Pengaduan</span></a>
+      <ul class="dropdown-menu">
+        <li><a class="nav-link" href="{% url 'pengaduan_admin'%}">pengaduan masyarakat</a></li>
+        <li><a class="nav-link" href="{% url 'kategori_admin'%}">kategori pengaduan</a></li>
+        <li class="active"><a class="nav-link" href="{% url 'konfirmasi_admin'%}">pengaduan terkonfirmasi</a></li>
+        <li><a class="nav-link" href="{% url 'surat_admin'%}">surat pengaduan</a></li>
+      </ul>
+    </li>
+
+    <li class="menu-header">Berita</li>
+    <li><a href="{% url 'berita_admin'%}" class="nav-link"><i class="fas fa-th-large"></i> <span>Data Berita</span></a></li>
+  </ul>
+
+</aside>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+            <h1>Detail konfirmasi</h1>
+        </div>
+        <div class="section-body">
+            <h2 class="section-title">Nama</h2>
+            <p class="section-lead">Tanggal.</p>
+            <div class="card">
+                <div class="card-header">
+                    <img src="{% static 'dist/assets/img/news/img09.jpg' %}" alt="">
+                </div>
+                <div class="card-body">
+                    <p>keterangan</p>
+                    <a href="">lokasi</a>
+                </div>
+                <div class="card-footer bg-whitesmoke">
+                    <a href="#" class="btn btn-warning">Edit</a>
+                    <a href="#" class="btn btn-info">cetak surat</a>
+                    <a href="{% url 'konfirmasi_admin'%}" class="btn btn-secondary">Kembali</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+</div>
+
+{% endblock content %}

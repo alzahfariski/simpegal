@@ -1,0 +1,189 @@
+{% extends 'layout/stis.html' %}
+
+{% block content %}
+
+
+          <ul class="sidebar-menu">
+            <li class="menu-header">Dashboard</li>
+            <li class="active"><a class="nav-link" href="{% url 'dashboard_admin'%}"><i class="fas fa-fire"></i><span>Dashboard</span></a></li>
+
+            <li class="menu-header">Pengaduan</li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Data
+                  Pengaduan</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="{% url 'pengaduan_admin'%}">pengaduan masyarakat</a></li>
+                <li><a class="nav-link" href="{% url 'kategori_admin'%}">kategori pengaduan</a></li>
+                <li><a class="nav-link" href="{% url 'konfirmasi_admin'%}">pengaduan terkonfirmasi</a></li>
+                <li><a class="nav-link" href="{% url 'surat_admin'%}">surat pengaduan</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-header">Berita</li>
+            <li><a href="{% url 'berita_admin'%}" class="nav-link"><i class="fas fa-th-large"></i> <span>Data Berita</span></a></li>
+          </ul>
+
+        </aside>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <section class="section">
+          <div class="section-header">
+            <h1>Dashboard</h1>
+          </div>
+          <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div class="card card-statistic-1">
+                <div class="card-icon bg-primary">
+                  <i class="far fa-user"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Total Pengaduan</h4>
+                  </div>
+                  <div class="card-body">
+                    10
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div class="card card-statistic-1">
+                <div class="card-icon bg-danger">
+                  <i class="far fa-newspaper"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>konfirmasi</h4>
+                  </div>
+                  <div class="card-body">
+                    42
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div class="card card-statistic-1">
+                <div class="card-icon bg-warning">
+                  <i class="far fa-file"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Di tolak</h4>
+                  </div>
+                  <div class="card-body">
+                    1,201
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div class="card card-statistic-1">
+                <div class="card-icon bg-success">
+                  <i class="fas fa-circle"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Di ajukan</h4>
+                  </div>
+                  <div class="card-body">
+                    47
+                  </div>
+                </div>
+              </div>
+            </div>            
+          </div> 
+          <div class="section-body">
+            <h2 class="section-title">Pengaduan Masyarakat</h2>
+            <p class="section-lead">
+              Rekap data pengaduan masyarakat.
+            </p>
+
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-8">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Line Chart</h4>
+                  </div>
+                  <div class="card-body">
+                    <canvas id="myChart"></canvas>
+                  </div>
+                  <div class="card-footer">
+                    <p>data pengaduan</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="card card-hero">
+                  <div class="card-header">
+                    <div class="card-icon">
+                      <i class="far fa-question-circle"></i>
+                    </div>
+                    <h4>6</h4>
+                    <div class="card-description">pengaduan belum terkonfirmasi</div>
+                  </div>
+                  <div class="card-body p-0">
+                    <div class="tickets-list">
+                      <a href="#" class="ticket-item">
+                        <div class="ticket-title">
+                          <h4>My order hasn't arrived yet</h4>
+                        </div>
+                        <div class="ticket-info">
+                          <div>Laila Tazkiah</div>
+                          <div class="bullet"></div>
+                          <div class="text-primary">1 min ago</div>
+                        </div>
+                      </a>
+                      <a href="#" class="ticket-item">
+                        <div class="ticket-title">
+                          <h4>Please cancel my order</h4>
+                        </div>
+                        <div class="ticket-info">
+                          <div>Rizal Fakhri</div>
+                          <div class="bullet"></div>
+                          <div>2 hours ago</div>
+                        </div>
+                      </a>
+                      <a href="#" class="ticket-item">
+                        <div class="ticket-title">
+                          <h4>Do you see my mother?</h4>
+                        </div>
+                        <div class="ticket-info">
+                          <div>Syahdan Ubaidillah</div>
+                          <div class="bullet"></div>
+                          <div>6 hours ago</div>
+                        </div>
+                      </a>
+                      <a href="#" class="ticket-item">
+                        <div class="ticket-title">
+                          <h4>Do you see my mother?</h4>
+                        </div>
+                        <div class="ticket-info">
+                          <div>Syahdan Ubaidillah</div>
+                          <div class="bullet"></div>
+                          <div>6 hours ago</div>
+                        </div>
+                      </a>                    
+                      <a href="{% url 'pengaduan_admin'%}" class="ticket-item ticket-more">
+                        View All <i class="fas fa-chevron-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-6">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Bar Chart</h4>
+                  </div>
+                  <div class="card-body">
+                    <canvas id="myChart2"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>            
+          </div>          
+        </section>
+      </div>
+      {% endblock content %}

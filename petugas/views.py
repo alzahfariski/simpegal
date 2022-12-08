@@ -138,12 +138,7 @@ def pengaduan(request):
     else:
         return render(request,'eror_404.html')
 
-def surat(request):
-    context={}
-    if request.user.is_staff == 1:
-        return render(request, 'admin/surat.html', context)
-    else:
-        return render(request,'eror_404.html')   
+  
 
 
 def detail_pengaduan(request):

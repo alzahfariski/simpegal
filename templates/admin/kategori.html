@@ -78,7 +78,7 @@
                          <td>{{row.jenis}}</td>
                         
                          <td>
-                          <button class="btn btn-warning" data-toggle="modal" data-target="#exampleModal2">Edit</button>                          
+                          <a href="{% url 'edit_kategori' row.id %}" class="btn btn-warning">edit</a>                          
                           <a href="{% url 'hapuskategori' row.id %}" class="btn btn-danger" title="hapus">Hapus</a>
                         </td>
                        </tr> 
@@ -126,39 +126,8 @@
               
             </div>
           </div>
-        </div>        
-        <div class="modal fade" tabindex="-1" role="dialog" id="exampleModal2">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Detail Kategori</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <form>
-                  <div class="mb-3">
-                    <label class="col-form-label">Nama</label>
-                    <input type="text" class="form-control" id="nama" placeholder="nama kategori">
-                  </div>
-                  <div class="mb-3">
-                    <label class="col-form-label">Sifat</label>
-                    <input type="text" class="form-control" id="sifat" placeholder="sifat">
-                  </div>
-                  <div class="mb-3">
-                    <label class="col-form-label">jenis</label>
-                    <input type="text" class="form-control" id="jenis" placeholder="jenis">
-                  </div>                  
-                </form>
-              </div>
-              <div class="modal-footer bg-whitesmoke br">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">kembali</button>
-                <button type="button" class="btn btn-primary">simpan</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        </div>       
+        
       </div>
      
   {% endblock content %}

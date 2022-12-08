@@ -11,6 +11,7 @@ urlpatterns = [
     path('berita/edit_berita/<int:id>',views.edit_berita, name='edit_berita'),
     path('berita/hapus_berita/<delete_id>',views.hapusberita, name='hapusberita'),
     path('kategori/',views.kategori,name='kategori_admin'),
+    path('berita/edit_kategori/<int:id>',views.edit_kategori, name='edit_kategori'),
     path('kategori/hapus_kategori/<delete_id>',views.hapuskategori, name='hapuskategori'),
     path('konfirmasi/',views.konfirmasi,name='konfirmasi_admin'),
     path('konfirmasi/detail_konfirmasi/',views.detail_konfirmasi,name='detail_konfirmasi'),

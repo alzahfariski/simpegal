@@ -10,8 +10,14 @@ class artikeladmin(admin.ModelAdmin):
         'tanggal',
     ]
 
+class aduanadmin(admin.ModelAdmin):
+    readonly_fields = [
+        'slug',
+        'tanggal',
+    ]
+
 admin.site.register(models.artikel, artikeladmin)
 admin.site.register(models.kategori)
-admin.site.register(models.pengaduan)
+admin.site.register(models.aduan, aduanadmin)
 
 

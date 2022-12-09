@@ -62,23 +62,23 @@
                           <th>Status</th>
                           <th>Action</th>
                         </tr>
-                        
+                        {% for row in posts %}
                         <tr>
                           <td>
-                            id
+                            {{forloop.counter}}
                           </td>
-                          <td>nama</td>
+                          <td>{{row.nama}}</td>
                           <td class="align-middle">
-                            keterangan
+                            {{row.keterangan}}
                           </td>
                           <td>
-                            <img alt="image" src="" class="rounded-circle" width="35" data-toggle="tooltip" title="nama">
+                            <img alt="" src="{{row.foto.url}}" class="rounded-circle" width="35" data-toggle="tooltip" title="{{row.judul}}">
                           </td>
-                          <td>tanggal</td>
-                          <td><div class="badge badge-warning">status</div></td>
+                          <td>{{row.tanggal}}</td>
+                          <td><div class="badge badge-warning">{{row.status}}</div></td>
                           <td><a href="{%url 'detail_pengaduan'%}" class="btn btn-primary">Detail</a></td>
                         </tr>
-                        
+                        {% endfor %}
                       </table>
                     </div>
                   </div>

@@ -35,12 +35,13 @@ class kategori(models.Model):
     def __str__(self):
         return self.nama
 
-class pengaduan(models.Model):
+class aduan(models.Model):
     nama = models.CharField(max_length=100)
     jalan = models.CharField(max_length=200)
     kecamatan = models.CharField(max_length=100)
     keterangan = models.CharField(max_length=300)
     foto  = models.ImageField(upload_to='pengaduan/')
+    tanggal = models.DateField(auto_now_add=True)
     STATUS = (
         ('proses', 'Proses'),
         ('konfirmasi', 'Konfirmasi'),        
@@ -49,9 +50,14 @@ class pengaduan(models.Model):
     status = models.CharField(max_length=50, choices=STATUS, default='proses')
     kategori_id = models.ForeignKey(kategori,  on_delete=models.CASCADE)
     pengadu_id = models.ForeignKey(UserProfileInfo, on_delete=models.CASCADE)
-    
+    slug = models.SlugField(editable=False)
+
     class Meta:
         ordering = ['-id']
+
+    def save(self):
+        self.slug=slugify(self.nama)
+        super(aduan,self).save() 
 
     def __str__(self):
         return self.nama

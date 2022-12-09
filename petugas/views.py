@@ -123,22 +123,23 @@ def hapuskategori(request, delete_id):
     models.kategori.objects.filter(id = delete_id).delete()
     return redirect('kategori_admin')
 
+def pengaduan(request):
+    if request.user.is_staff == 1:
+        posts = models.aduan.objects.all()
+        context = {
+            'page_title': 'pengaduan',
+            'posts': posts,
+        }
+        return render(request, 'admin/pengaduan.html', context)
+    else:
+        return render(request,'eror_404.html')
 
 def konfirmasi(request):
     context={}
     if request.user.is_staff == 1:
         return render(request, 'admin/konfirmasi.html', context)
     else:
-        return render(request,'eror_404.html')
-   
-def pengaduan(request):
-    context={}
-    if request.user.is_staff == 1:
-        return render(request, 'admin/pengaduan.html', context)
-    else:
-        return render(request,'eror_404.html')
-
-  
+        return render(request,'eror_404.html')  
 
 
 def detail_pengaduan(request):

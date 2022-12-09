@@ -31,15 +31,18 @@
             <h1>Detail Pengaduan</h1>
         </div>
         <div class="section-body">
-            <h2 class="section-title">Nama</h2>
-            <p class="section-lead">Tanggal.</p>
+            <h2 class="section-title">{{posts.nama}}</h2>
+            <p class="section-lead">{{posts.tanggal}}</p>
             <div class="card">
                 <div class="card-header">
-                    <img src="{% static 'dist/assets/img/news/img09.jpg' %}" alt="">
+                    <img src="{{posts.foto.url}}"  style="max-width:500px ;" alt="">
                 </div>
                 <div class="card-body">
-                    <p>keterangan</p>
-                    <a href="">lokasi</a>
+                    <p>keterangan : {{posts.keterangan}}</p>
+                    <p>jalan : {{posts.jalan}}</p>
+                    <p>kecamatan : {{posts.kecamatan}}</p>
+                    <p>kategori : {{posts.kategori_id}}</p>
+                    <p>nama pengadu: {{posts.pengadu_id}}</p>
                 </div>
                 <div class="card-footer bg-whitesmoke">
                     <a href="#" class="btn btn-warning">Konfirmasi</a>

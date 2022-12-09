@@ -134,20 +134,24 @@ def pengaduan(request):
     else:
         return render(request,'eror_404.html')
 
+def detail_pengaduan(request, aduanslug):
+    context={}
+    if request.user.is_staff == 1:
+        posts = models.aduan.objects.get(slug=aduanslug)
+        context={
+            'page_title':'detail berita',
+            'posts':posts,
+        }
+        return render(request, 'admin/detail_pengaduan.html',context)
+    else:
+        return render(request,'eror_404.html')
+
 def konfirmasi(request):
     context={}
     if request.user.is_staff == 1:
         return render(request, 'admin/konfirmasi.html', context)
     else:
         return render(request,'eror_404.html')  
-
-
-def detail_pengaduan(request):
-    context={}
-    if request.user.is_staff == 1:
-        return render(request, 'admin/detail_pengaduan.html',context)
-    else:
-        return render(request,'eror_404.html')
 
 def detail_konfirmasi(request):
     context={}

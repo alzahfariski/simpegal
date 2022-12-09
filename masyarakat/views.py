@@ -9,9 +9,11 @@ def beranda(request):
     if request.user.is_staff == 0:
         posts = models.artikel.objects.all()
         kategori = models.kategori.objects.all()
+        pengaduan = models.aduan.objects.all()
         context={
             'posts': posts,
             'kategori':kategori,
+            'pengaduan':pengaduan,
         }       
         return render(request, 'mas/beranda.html',context)
     elif request.user.is_staff == 1:

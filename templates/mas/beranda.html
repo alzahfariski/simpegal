@@ -111,13 +111,14 @@
               </tr>
             </thead>
             <tbody>
+                {% for pen in pengaduan %}
               <tr>
-                <th scope="row">1</th>
-                <td>pohon tumbang</td>
-                <td>20 november 2022</td>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{pen.nama}}</td>
+                <td>{{pen.tanggal}}</td>
                 <td><button class="btn btn-primary">detail</button> </td>
               </tr>
-              
+              {% endfor%}
             </tbody>
           </table>
     </div>
@@ -143,14 +144,15 @@
               </tr>
             </thead>
             <tbody>
+                {% for pen in pengaduan %}
               <tr>
-                <th scope="row">1</th>
-                <td>pohon tumbang</td>
-                <td>20 november 2022</td>
-                <td><button class="btn btn-warning">proses</button> </td>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{pen.nama}}</td>
+                <td>{{pen.tanggal}}</td>
+                <td><button class="btn btn-warning">{{pen.status}}</button> </td>
                 <td><button class="btn btn-primary">detail</button> </td>
               </tr>
-              
+              {% endfor%}
             </tbody>
           </table>
     </div>

@@ -41,13 +41,8 @@ class aduan(models.Model):
     kecamatan = models.CharField(max_length=100)
     keterangan = models.CharField(max_length=300)
     foto  = models.ImageField(upload_to='pengaduan/')
-    tanggal = models.DateField(auto_now_add=True)
-    STATUS = (
-        ('proses', 'Proses'),
-        ('konfirmasi', 'Konfirmasi'),        
-        ('tolak', 'Tolak'),        
-    )
-    status = models.CharField(max_length=50, choices=STATUS, default='proses')
+    tanggal = models.DateField(auto_now_add=True)    
+    status = models.CharField(max_length=50, default='proses')
     kategori_id = models.ForeignKey(kategori,  on_delete=models.CASCADE)
     pengadu_id = models.ForeignKey(UserProfileInfo, on_delete=models.CASCADE)
     slug = models.SlugField(editable=False)

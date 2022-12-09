@@ -45,8 +45,8 @@
                     <p>nama pengadu: {{posts.pengadu_id}}</p>
                 </div>
                 <div class="card-footer bg-whitesmoke">
-                    <a href="#" class="btn btn-warning">Konfirmasi</a>
-                    <button class="btn btn-danger" data-confirm="Tolak Pengaduan (nama data)" data-confirm-yes="alert('Deleted :)');">Tolak</button>
+                    <button class="btn btn-warning mr-1" type="submit" name="konfirmasi_pengaduan">Konfirmasi</button>
+                    <button class="btn btn-danger mr-1" data-confirm="Tolak Pengaduan (nama data)" data-confirm-yes="alert('Deleted :)');">Tolak</button>
                     <a href="{% url 'pengaduan_admin'%}" class="btn btn-secondary">Kembali</a>
                 </div>
             </div>

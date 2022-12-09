@@ -144,7 +144,7 @@ def detail_pengaduan(request, aduanslug):
         }
         return render(request, 'admin/detail_pengaduan.html',context)
     else:
-        return render(request,'eror_404.html')
+        return render(request,'eror_404.html')        
 
 def konfirmasi(request):
     context={}

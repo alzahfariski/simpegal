@@ -41,6 +41,12 @@ class pengaduan(models.Model):
     kecamatan = models.CharField(max_length=100)
     keterangan = models.CharField(max_length=300)
     foto  = models.ImageField(upload_to='pengaduan/')
+    STATUS = (
+        ('proses', 'Proses'),
+        ('konfirmasi', 'Konfirmasi'),        
+        ('tolak', 'Tolak'),        
+    )
+    status = models.CharField(max_length=50, choices=STATUS, default='proses')
     kategori_id = models.ForeignKey(kategori,  on_delete=models.CASCADE)
     pengadu_id = models.ForeignKey(UserProfileInfo, on_delete=models.CASCADE)
     

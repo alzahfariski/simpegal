@@ -8,8 +8,10 @@ def beranda(request):
     context={}
     if request.user.is_staff == 0:
         posts = models.artikel.objects.all()
+        kategori = models.kategori.objects.all()
         context={
             'posts': posts,
+            'kategori':kategori,
         }       
         return render(request, 'mas/beranda.html',context)
     elif request.user.is_staff == 1:
@@ -25,7 +27,22 @@ def bantuan(request):
 def ajuan(request):
     context={}
     if request.user.is_staff == 0: 
+        kategori = models.kategori.objects.all()
+        context={
+            'kategori':kategori,
+        }     
         return render(request, 'mas/ajukan.html', context)
+    elif request.user.is_staff == 1:
+        return render(request,'eror_404.html' )
+
+def detberita(request,artikelslug):
+    if request.user.is_staff == 0: 
+        posts = models.artikel.objects.get(slug=artikelslug)
+        context={
+            'page_title':'detail berita',
+            'posts':posts,
+        }     
+        return render(request, 'mas/detberita.html', context)
     elif request.user.is_staff == 1:
         return render(request,'eror_404.html' )
 

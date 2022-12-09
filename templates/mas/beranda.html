@@ -58,7 +58,7 @@
                     
                     <div class="card-detail text-center">
                         <span>
-                            <button type="button" class="btn" style="color:#5E5DBA;">Lihat berita</button>
+                            <button type="button" class="btn" style="color:#5E5DBA;"><a href="{% url 'detberita' row.slug %}"> Lihat berita </a></button>
                         </span>                        
                     </div>
                 </div>
@@ -69,7 +69,7 @@
 </section>
 <section class="team section-padding" id="team">
     <div class="container">
-        <div class="row">
+        <div class="row">            
             <div class="col-md-12">
                 <div class="section-header text-center pb-5">
                     <h2>kategori Simpegal</h2>
@@ -78,38 +78,16 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-3">
+            {% for kat in kategori %}
+            <div class="col-12 col-md-6 col-lg-3 p-4">
                 <div class="card text-center">
                     <div class="card-body">                        
-                        <h4 class="card-title py-2">Nama kategori</h4>
-                        <p class="card-text">jenis</p>                        
+                        <h4 class="card-title py-2">{{kat.nama}}</h4>
+                        <p class="card-text">{{kat.jenis}}</p>                        
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card text-center">
-                    <div class="card-body">                       
-                        <h4 class="card-title py-2">Nama kategori</h4>
-                        <p class="card-text">Jenis</p>                      
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card text-center">
-                    <div class="card-body">                       
-                        <h4 class="card-title py-2">Nama kategori</h4>
-                        <p class="card-text">Jenis</p>                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="card text-center">
-                    <div class="card-body">                        
-                        <h4 class="card-title py-2">Nama kategori</h4>
-                        <p class="card-text">Jenis</p>                      
-                    </div>
-                </div>
-            </div>
+            {% endfor %}            
         </div>
     </div>
 </section>

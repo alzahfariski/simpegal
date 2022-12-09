@@ -20,12 +20,22 @@
                       <input type="text" class="form-control" id="" >
                     </div>
                     <div class="mb-3">
-                      <label for="" class="form-label">Tanggal</label>
-                      <input type="date" class="form-control" id="" >
+                      <label for="" class="form-label">Jalan</label>
+                      <input type="text" class="form-control" id="" >
                     </div>
                     <div class="mb-3">
-                      <label for="" class="form-label">lokasi</label>
-                      <input type="text" class="form-control" id="" >
+                      <label for="" class="form-label">Kecamatan</label>
+                        <select class="form-select" aria-label="Kecamatan">                
+                        <option value="Muara Bangka Hulu">	Muara Bangka Hulu</option>
+                        <option value="Gading Cempaka">Gading Cempaka</option>
+                        <option value="Kampung Melayu">Kampung Melayu</option>
+                        <option value="Ratu Agung">Ratu Agung</option>
+                        <option value="Ratu Samban">Ratu Samban</option>
+                        <option value="Selebar">Selebar</option>
+                        <option value="Singaran Pati">Singaran Pati</option>
+                        <option value="Sungai Serut">Sungai Serut</option>
+                        <option value="Teluk Segara">Teluk Segara</option>
+                      </select>
                     </div>
                     <div class="mb-3">
                       <label for="" class="form-label">keterangan</label>
@@ -34,10 +44,9 @@
                     <div class="mb-3">
                         <label for="" class="form-label">ketegori</label>
                         <select class="form-select" aria-label="Kategori">
-                        <option selected>banjir</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                          {% for kat in kategori %}
+                        <option value="{{kat.nama}}">{{kat.nama}}</option>                        
+                        {% endfor %} 
                       </select>
                     </div>
                     <div class="mb-3">
@@ -46,7 +55,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="formFile" class="form-label">pengadu</label>
-                    <input class="form-control" id="disabledInput" type="text" placeholder="nama pengadu" disabled>
+                    <input class="form-control" id="disabledInput" type="text" placeholder="{{user}}" disabled>
                 </div>               
                     <button type="submit" class="btn btn-primary">Kirim</button>
                   </form>

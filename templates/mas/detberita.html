@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simpegal</title>
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="{% static 'asset/css/styles.css' %}">
+
+       
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script> -->
+</head>
+
+
+    
+    <div class="section-body m-3">
+           
+        <h2 class="section-title">{{posts.judul}}</h2>
+        <p class="section-lead">{{posts.tanggal}}</p>            
+       
+          <div class="card-header">
+            <img src= "{{posts.gambar.url}}" alt="" style="max-width:500px ;">                
+          </div>
+          <div class="card-body">
+            <p>{{posts.isi}}</p>
+            <a href="{{posts.sumber}}">Sumber : {{posts.sumber}}</a>
+          </div> 
+          
+        
+          <div class="card-footer bg-whitesmoke pt-4">        
+            <a href="{% url 'beranda'%}" class="btn btn-primary">Kembali</a>
+          </div>
+        
+        
+      </div>
+
+
+    <script src="{% static 'asset/css/sc.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script> -->
+</body>
+
+
+</html>
+

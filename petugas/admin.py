@@ -12,5 +12,6 @@ class artikeladmin(admin.ModelAdmin):
 
 admin.site.register(models.artikel, artikeladmin)
 admin.site.register(models.kategori)
+admin.site.register(models.pengaduan)
 
 

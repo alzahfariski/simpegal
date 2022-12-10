@@ -15,6 +15,9 @@ def dashboard_admin(request):
         context = {
             'posts':posts,
             'total_pengaduan':len(models.aduan.objects.all()),
+            'total_konfirmasi':len(models.aduan.objects.filter(status = 'konfirmasi')),
+            'total_proses':len(models.aduan.objects.filter(status = 'proses')),
+            'total_tolak':len(models.aduan.objects.filter(status = 'tolak')),
         }
         return render(request, 'admin/dashboard.html',context)
     else:

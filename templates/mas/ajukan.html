@@ -42,27 +42,20 @@
                       <label for="keterangan" class="form-label">keterangan</label>
                       <input type="text" class="form-control" id="keterangan" name="keterangan" >
                     </div>
-                    <div class="form-group mb-3">
-                      <label for="status" class="form-label">status</label>
-                      <input type="text" class="form-control" id="status" name="status" >
-                    </div>
+                    
+                      <input type="hidden" class="form-control" id="status" name="status" value="proses" >
+                    
                     <div class="form-group mb-3">    
                         <label for="{{ post_aduan.kategori_id.id_for_label }}" class="form-label">ketegori</label>
                         {{ post_aduan.kategori_id }}
-                        <!-- <select id="kategori_id" name="kategori_id" class="form-select" aria-label="Kategori">
-                          {% for kat in kategori %}
-                        <option value="{{kat.nama}}">{{kat.nama}}</option>                        
-                        {% endfor %} 
-                      </select> -->
+                        
                     </div>
                     <div class="form-group mb-3">
                       <label for="foto" class="form-label">Lampiran Foto</label>
                       <input class="form-control" accept="image/*" type="file" id="foto" name="foto">
                     </div>
-                    <div class="form-group mb-3">    
-                      <label for="{{ post_aduan.pengadu_id.id_for_label }}" class="form-label">nama pengaju aduan</label>
-                      {{ post_aduan.pengadu_id }}
-                    </div>     
+                    <input type="hidden" id="pengadu_id" name="pengadu_id" class="form-control" value="{{user.id}}">                            
+                    
                     <button type="submit" class="btn btn-primary">Kirim</button>
                   </form>
             </div>

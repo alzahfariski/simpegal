@@ -28,7 +28,7 @@ def bantuan(request):
         return render(request,'eror_404.html' )
 
 def ajuan(request):    
-    if request.user.is_staff == 0: 
+    if request.user.is_staff == 0:
         post_aduan = forms.postaduan()
         if request.method == 'POST':
             post_aduan = forms.postaduan(request.POST, request.FILES)

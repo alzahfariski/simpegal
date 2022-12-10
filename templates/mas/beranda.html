@@ -146,7 +146,7 @@
             <tbody>
                 {% for pen in pengaduan %}            
                     
-                    {% if pen.pengadu_id_id == user.is_active %}
+                    {% if pen.pengadu_id_id == user.id %}
                         
               <tr>
                 <th scope="row">{{forloop.counter}}</th>

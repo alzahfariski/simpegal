@@ -4,6 +4,7 @@ from django.db import models
 from django.db import models
 from django.utils.text import slugify
 from auntentifikasi.models import UserProfileInfo
+from django.contrib.auth.models import User
 
 # Create your models here.
 class artikel(models.Model):
@@ -44,7 +45,7 @@ class aduan(models.Model):
     tanggal = models.DateField(auto_now_add=True)    
     status = models.CharField(max_length=50, default='proses')
     kategori_id = models.ForeignKey(kategori,  on_delete=models.CASCADE)
-    pengadu_id = models.ForeignKey(UserProfileInfo, on_delete=models.CASCADE)
+    pengadu_id = models.ForeignKey(User, on_delete=models.CASCADE)
     slug = models.SlugField(editable=False)
 
     class Meta:

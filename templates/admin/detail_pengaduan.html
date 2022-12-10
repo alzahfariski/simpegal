@@ -33,6 +33,8 @@
         <div class="section-body">
             <h2 class="section-title">{{posts.nama}}</h2>
             <p class="section-lead">{{posts.tanggal}}</p>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
             <div class="card">
                 <div class="card-header">
                     <img src="{{posts.foto.url}}"  style="max-width:500px ;" alt="">
@@ -42,14 +44,34 @@
                     <p>jalan : {{posts.jalan}}</p>
                     <p>kecamatan : {{posts.kecamatan}}</p>
                     <p>kategori : {{posts.kategori_id}}</p>
-                    <p>nama pengadu: {{posts.pengadu_id}}</p>
+                    <p>nama pengadu: {{posts.pengadu_id}}</p>                         
+                    <input type="hidden" id="nama" name="nama" class="form-control" value="{{posts.nama}}">                       
+                     
+                    <input type="hidden" id="jalan" name="jalan" class="form-control" value="{{posts.jalan}}">                            
+                    <input type="hidden" id="kecamatan" name="kecamatan" class="form-control" value="{{posts.kecamatan}}">
+                    <input type="hidden" id="keterangan" name="keterangan" class="form-control" value="{{posts.keterangan}}" >
+                    
+                    <div class="form-group">                       
+                        <div class="selectgroup w-100">
+                          <label class="selectgroup-item">
+                            <input type="radio" id="status" name="status" value="konfirmasi" class="selectgroup-input">
+                            <span class="selectgroup-button">konfirmasi</span>
+                          </label>
+                          <label class="selectgroup-item">
+                            <input type="radio" id="status" name="status" value="tolak" class="selectgroup-input">
+                            <span class="selectgroup-button">tolak</span>
+                          </label>                          
+                        </div>
+                    </div>
                 </div>
-                <div class="card-footer bg-whitesmoke">
-                    <button class="btn btn-warning mr-1" type="submit" name="konfirmasi_pengaduan">Konfirmasi</button>
-                    <button class="btn btn-danger mr-1" data-confirm="Tolak Pengaduan (nama data)" data-confirm-yes="alert('Deleted :)');">Tolak</button>
-                    <a href="{% url 'pengaduan_admin'%}" class="btn btn-secondary">Kembali</a>
+                      
+                <div class="card-footer text-right">
+                    <button class="btn btn-primary mr-1" type="submit">simpan</button>
+                    <a href="{% url 'pengaduan_admin'%}" class="btn btn-secondary">Kembali</a>                        
                 </div>
-            </div>
+            </div>                   
+                
+             </form>
         </div>
 
     </section>

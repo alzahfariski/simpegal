@@ -76,7 +76,7 @@
                           </td>
                           <td>{{row.tanggal}}</td>
                           <td><div class="badge badge-warning">{{row.status}}</div></td>
-                          <td><a href="{%url 'detail_pengaduan' row.slug %}" class="btn btn-primary">Detail</a></td>
+                          <td><a href="{%url 'detail_pengaduan' row.id %}" class="btn btn-primary">Detail</a></td>
                         </tr>
                         {% endfor %}
                       </table>

@@ -7,7 +7,7 @@ from petugas import models
 def beranda(request):    
     context={}
     if request.user.is_staff == 0:
-        posts = models.artikel.objects.all()
+        posts =  models.artikel.objects.all()
         kategori = models.kategori.objects.all()
         pengaduan = models.aduan.objects.all()
         context={

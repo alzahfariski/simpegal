@@ -136,7 +136,7 @@
         <table class="table table-primary table-striped">
             <thead>
               <tr>
-                <th scope="col">NO</th>
+                <th scope="col">no</th>
                 <th scope="col">Pengaduan</th>
                 <th scope="col">Tanggal</th>
                 <th scope="col">status</th>
@@ -144,7 +144,10 @@
               </tr>
             </thead>
             <tbody>
-                {% for pen in pengaduan %}
+                {% for pen in pengaduan %}            
+                    
+                    {% if pen.pengadu_id_id == user.is_active %}
+                        
               <tr>
                 <th scope="row">{{forloop.counter}}</th>
                 <td>{{pen.nama}}</td>
@@ -152,6 +155,7 @@
                 <td><button class="btn btn-warning">{{pen.status}}</button> </td>
                 <td><button class="btn btn-primary">detail</button> </td>
               </tr>
+              {% endif %}
               {% endfor%}
             </tbody>
           </table>

@@ -20,6 +20,17 @@ def beranda(request):
     elif request.user.is_staff == 1:
         return render(request,'eror_404.html' )
 
+def detaduan(request, aduanslug):
+    if request.user.is_staff == 0: 
+        posts = models.aduan.objects.get(slug=aduanslug)
+        context={
+            'page_title':'detail aduan',
+            'posts':posts,
+        }     
+        return render(request, 'mas/detaduan.html', context)
+    elif request.user.is_staff == 1:
+        return render(request,'eror_404.html' )
+
 def bantuan(request):
     context={}
     if request.user.is_staff == 0:

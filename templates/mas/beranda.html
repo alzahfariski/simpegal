@@ -116,7 +116,7 @@
                 <th scope="row">{{forloop.counter}}</th>
                 <td>{{pen.nama}}</td>
                 <td>{{pen.tanggal}}</td>
-                <td><button class="btn btn-primary">detail</button> </td>
+                <td><a class="btn btn-primary" href="{% url 'detaduan' pen.slug %}">detail</a></td>
               </tr>
               {% endfor%}
             </tbody>
@@ -153,7 +153,7 @@
                 <td>{{pen.nama}}</td>
                 <td>{{pen.tanggal}}</td>
                 <td><button class="btn btn-warning">{{pen.status}}</button> </td>
-                <td><button class="btn btn-primary">detail</button> </td>
+                <td><a class="btn btn-primary" href="{% url 'detaduan' pen.slug %}">detail</a></td>
               </tr>
               {% endif %}
               {% endfor%}

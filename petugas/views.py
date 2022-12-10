@@ -9,9 +9,13 @@ from django.views.generic.edit import DeleteView, CreateView
 from django.urls import reverse_lazy
 
 # Create your views here.
-def dashboard_admin(request):    
-    context={}
+def dashboard_admin(request): 
     if request.user.is_staff == 1:
+        posts = models.aduan.objects.all()
+        context = {
+            'posts':posts,
+            'total_pengaduan':len(models.aduan.objects.all()),
+        }
         return render(request, 'admin/dashboard.html',context)
     else:
         return render(request,'eror_404.html')

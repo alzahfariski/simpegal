@@ -1,5 +1,5 @@
 {% extends 'layout/stis.html' %}
-
+{% load humanize %}
 {% block content %}
 
 
@@ -42,7 +42,7 @@
                     <h4>Total Pengaduan</h4>
                   </div>
                   <div class="card-body">
-                    10
+                    {{ total_pengaduan|intcomma }}
                   </div>
                 </div>
               </div>
@@ -99,88 +99,45 @@
               Rekap data pengaduan masyarakat.
             </p>
 
-            <div class="row">
-              <div class="col-12 col-md-6 col-lg-8">
-                <div class="card">
-                  <div class="card-header">
-                    <h4>Line Chart</h4>
-                  </div>
-                  <div class="card-body">
-                    <canvas id="myChart"></canvas>
-                  </div>
-                  <div class="card-footer">
-                    <p>data pengaduan</p>
-                  </div>
-                </div>
-              </div>
+            <div class="row">             
               <div class="col-md-4">
                 <div class="card card-hero">
                   <div class="card-header">
                     <div class="card-icon">
                       <i class="far fa-question-circle"></i>
                     </div>
-                    <h4>6</h4>
+                    <h4>1</h4>
                     <div class="card-description">pengaduan belum terkonfirmasi</div>
                   </div>
                   <div class="card-body p-0">
                     <div class="tickets-list">
-                      <a href="#" class="ticket-item">
+                      
+                      {% for row in posts %}
+                      
+                      {% if row.status == 'proses' %}
+                        
+                      <a href="{%url 'detail_pengaduan' row.id %}" class="ticket-item">
                         <div class="ticket-title">
-                          <h4>My order hasn't arrived yet</h4>
+                          <h4>{{row.nama}}</h4>
                         </div>
                         <div class="ticket-info">
-                          <div>Laila Tazkiah</div>
+                          <div>{{row.pengadu_id}}</div>
                           <div class="bullet"></div>
-                          <div class="text-primary">1 min ago</div>
+                          <div class="text-primary">{{row.tanggal}}</div>
                         </div>
                       </a>
-                      <a href="#" class="ticket-item">
-                        <div class="ticket-title">
-                          <h4>Please cancel my order</h4>
-                        </div>
-                        <div class="ticket-info">
-                          <div>Rizal Fakhri</div>
-                          <div class="bullet"></div>
-                          <div>2 hours ago</div>
-                        </div>
-                      </a>
-                      <a href="#" class="ticket-item">
-                        <div class="ticket-title">
-                          <h4>Do you see my mother?</h4>
-                        </div>
-                        <div class="ticket-info">
-                          <div>Syahdan Ubaidillah</div>
-                          <div class="bullet"></div>
-                          <div>6 hours ago</div>
-                        </div>
-                      </a>
-                      <a href="#" class="ticket-item">
-                        <div class="ticket-title">
-                          <h4>Do you see my mother?</h4>
-                        </div>
-                        <div class="ticket-info">
-                          <div>Syahdan Ubaidillah</div>
-                          <div class="bullet"></div>
-                          <div>6 hours ago</div>
-                        </div>
-                      </a>                    
+                      {% endif %}
+                      
+                      {% endfor %}
+
                       <a href="{% url 'pengaduan_admin'%}" class="ticket-item ticket-more">
-                        View All <i class="fas fa-chevron-right"></i>
+                        Lihat semua <i class="fas fa-chevron-right"></i>
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-md-6 col-lg-6">
-                <div class="card">
-                  <div class="card-header">
-                    <h4>Bar Chart</h4>
-                  </div>
-                  <div class="card-body">
-                    <canvas id="myChart2"></canvas>
-                  </div>
-                </div>
-              </div>
+              
             </div>            
           </div>          
         </section>

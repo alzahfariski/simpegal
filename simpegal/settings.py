@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'auntentifikasi',
     'petugas',
+    'django.contrib.humanize',
 
 ]
 

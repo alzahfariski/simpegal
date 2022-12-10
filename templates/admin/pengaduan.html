@@ -62,7 +62,11 @@
                           <th>Status</th>
                           <th>Action</th>
                         </tr>
-                        {% for row in posts %}
+                   
+                        {% for row in posts %} 
+                          
+                          {% if row.status == 'proses' %}  
+                            
                         <tr>
                           <td>
                             {{forloop.counter}}
@@ -78,7 +82,10 @@
                           <td><div class="badge badge-warning">{{row.status}}</div></td>
                           <td><a href="{%url 'detail_pengaduan' row.id %}" class="btn btn-primary">Detail</a></td>
                         </tr>
-                        {% endfor %}
+                        {% endif %}
+                        
+                      {% endfor %}
+                      
                       </table>
                     </div>
                   </div>

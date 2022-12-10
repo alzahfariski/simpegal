@@ -159,8 +159,12 @@ def detail_pengaduan(request, id):
         return render(request,'eror_404.html')        
 
 def konfirmasi(request):
-    context={}
     if request.user.is_staff == 1:
+        posts = models.aduan.objects.all()
+        context = {
+            'page_title': 'konfirmasi',
+            'posts': posts,
+        }
         return render(request, 'admin/konfirmasi.html', context)
     else:
         return render(request,'eror_404.html')  

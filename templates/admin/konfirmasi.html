@@ -15,6 +15,7 @@
                 <li><a class="nav-link" href="{% url 'pengaduan_admin'%}">pengaduan masyarakat</a></li>
                 <li><a class="nav-link" href="{% url 'kategori_admin'%}">kategori pengaduan</a></li>
                 <li class="active"><a class="nav-link" href="{% url 'konfirmasi_admin'%}">pengaduan terkonfirmasi</a></li>
+              </ul>
             </li>
 
             <li class="menu-header">Berita</li>
@@ -62,23 +63,30 @@
                          <th>Status</th>
                          <th>Action</th>
                        </tr>
-                       
-                       <tr>
-                         <td>
-                           id
-                         </td>
-                         <td>nama</td>
-                         <td class="align-middle">
-                           keterangan
-                         </td>
-                         <td>
-                           <img alt="image" src="" class="rounded-circle" width="35" data-toggle="tooltip" title="nama">
-                         </td>
-                         <td>tanggal</td>
-                         <td><div class="badge badge-warning">status</div></td>
-                         <td><a href="{%url 'detail_konfirmasi'%}" class="btn btn-primary">Detail</a></td>
-                       </tr>
-                       
+                       {% for row in posts %}
+                        {% if row.status == 'konfirmasi' %}
+                          
+                        <tr>
+                          <td>
+                            {{forloop.counter}}
+                          </td>
+                          <td>{{row.nama}}</td>
+                          <td class="align-middle">
+                            {{row.keterangan}}
+                          </td>
+                          <td>
+                            <img alt="" src="{{row.foto.url}}" class="rounded-circle" width="35" data-toggle="tooltip" title="{{row.judul}}">
+                          </td>
+                          <td>{{row.tanggal}}</td>
+                          <td><div class="badge badge-primary">{{row.status}}</div></td>
+                          <td>
+                            <a href="" class="btn btn-warning">edit</a>
+                            <a href="" class="btn btn-secondary">cetak</a>
+                            <a href="" class="btn btn-primary">Detail</a>
+                          </td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
                      </table>
                    </div>
                  </div>

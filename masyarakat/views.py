@@ -1,8 +1,9 @@
 from multiprocessing import context
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from petugas import models
+from petugas import forms
 # Create your views here.
 def beranda(request):    
     context={}
@@ -26,12 +27,16 @@ def bantuan(request):
     elif request.user.is_staff == 1:
         return render(request,'eror_404.html' )
 
-def ajuan(request):
-    context={}
+def ajuan(request):    
     if request.user.is_staff == 0: 
-        kategori = models.kategori.objects.all()
+        post_aduan = forms.postaduan()
+        if request.method == 'POST':
+            post_aduan = forms.postaduan(request.POST, request.FILES)
+            if post_aduan.is_valid():
+                post_aduan.save()
+                return redirect('beranda')
         context={
-            'kategori':kategori,
+            'post_aduan':post_aduan,
         }     
         return render(request, 'mas/ajukan.html', context)
     elif request.user.is_staff == 1:

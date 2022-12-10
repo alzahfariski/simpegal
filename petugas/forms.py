@@ -20,13 +20,7 @@ class postkategori(forms.ModelForm):
             'jenis',
         ]
 
-class postaduan(forms.ModelForm):
+class postaduan(forms.ModelForm):    
     class Meta:
         model = aduan
-        fields = [
-            'nama',
-            'jalan',
-            'kecamatan',
-            'keterangan',
-            'status',
-        ]
+        fields = '__all__'

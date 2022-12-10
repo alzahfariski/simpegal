@@ -2,7 +2,6 @@
 
 {% block content %}
 
-<body>
 
           <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
@@ -15,7 +14,8 @@
               <ul class="dropdown-menu">
                 <li><a class="nav-link" href="{% url 'pengaduan_admin'%}">pengaduan masyarakat</a></li>
                 <li><a class="nav-link" href="{% url 'kategori_admin'%}">kategori pengaduan</a></li>
-                <li><a class="nav-link" href="{% url 'konfirmasi_admin'%}">pengaduan terkonfirmasi</a></li>
+                <li><a class="nav-link" href="{% url 'konfirmasi_admin'%}">kategori pengaduan</a></li>
+                <li class="active"><a class="nav-link" href="{% url 'tolak'%}">pengaduan tertolak</a></li>
               </ul>
             </li>
 
@@ -30,7 +30,7 @@
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>Data Surat</h1>
+            <h1>Data pengaduan terkonfirmasi</h1>
           </div>
 
           <div class="section-body">
@@ -39,16 +39,7 @@
                <div class="card">
                  <div class="card-header">
                    <h4>pengaduan</h4>
-                   <div class="card-header-form">
-                     <form>
-                       <div class="input-group">
-                         <input type="text" class="form-control" placeholder="Search">
-                         <div class="input-group-btn">
-                           <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                         </div>
-                       </div>
-                     </form>
-                   </div>
+                   
                  </div>                  
                  <div class="card-body p-0">
                    <div class="table-responsive">
@@ -58,27 +49,36 @@
                            no
                          </th>
                          <th>Nama</th>
-                         <th>Keterangan</th>                        
+                         <th>Keterangan</th>
+                         <th>Foto</th>
                          <th>Tanggal</th>
-                        
+                         <th>Status</th>
                          <th>Action</th>
                        </tr>
-                       
-                       <tr>
-                         <td>
-                           id
-                         </td>
-                         <td>nama</td>
-                         <td class="align-middle">
-                           keterangan
-                         </td>                        
-                         <td>tanggal</td>
-                       
-                         <td><a href="#" class="btn btn-warning">Edit</a>
-                          <a href="#" class="btn btn-danger">hapus</a>
-                          <a href="#" class="btn btn-info">cetak</a></td>
-                       </tr>
-                       
+                       {% for row in posts %}
+                        {% if row.status == 'tolak' %}
+                          
+                        <tr>
+                          <td>
+                            {{forloop.counter}}
+                          </td>
+                          <td>{{row.nama}}</td>
+                          <td class="align-middle">
+                            {{row.keterangan}}
+                          </td>
+                          <td>
+                            <img alt="" src="{{row.foto.url}}" class="rounded-circle" width="35" data-toggle="tooltip" title="{{row.judul}}">
+                          </td>
+                          <td>{{row.tanggal}}</td>
+                          <td><div class="badge badge-primary">{{row.status}}</div></td>
+                          <td>
+                            <a href="" class="btn btn-warning">edit</a>
+                            <a href="" class="btn btn-secondary">cetak</a>
+                            <a href="" class="btn btn-primary">Detail</a>
+                          </td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
                      </table>
                    </div>
                  </div>

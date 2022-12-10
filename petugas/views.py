@@ -182,3 +182,13 @@ def detail_konfirmasi(request):
         return render(request, 'admin/detail_konfirmasi.html')
     else:
         return render(request,'eror_404.html')
+
+def tolak(request):
+    if request.user.is_staff == 1:
+        posts = models.aduan.objects.all()
+        context = {
+            'posts':posts
+        }
+        return render(request, 'admin/tolak.html', context)
+    else:
+        return render(request, 'eror_404.html')

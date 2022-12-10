@@ -17,6 +17,7 @@ urlpatterns = [
     path('konfirmasi/detail_konfirmasi/',views.detail_konfirmasi,name='detail_konfirmasi'),
     path('pengaduan/', views.pengaduan,name='pengaduan_admin'),
     path('pengaduan/detail_pengaduan/<int:id>', views.detail_pengaduan, name='detail_pengaduan'),
+    path('tolak/',views.tolak, name='tolak'),
     
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

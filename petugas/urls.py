@@ -17,6 +17,7 @@ urlpatterns = [
     path('konfirmasi/detail_konfirmasi/',views.detail_konfirmasi,name='detail_konfirmasi'),
     path('pengaduan/', views.pengaduan,name='pengaduan_admin'),
     path('pengaduan/detail_pengaduan/<int:id>', views.detail_pengaduan, name='detail_pengaduan'),
+    path('pengaduan/edit_pengaduan/<int:id>', views.edit_pengaduan, name='edit_pengaduan'),
     path('tolak/',views.tolak, name='tolak'),
     path('tolak/hapus_aduan/<delete_id>',views.hapusaduan, name='hapusaduan'),
     path('surat/<pk>', views.cetak_surat, name='surat')

@@ -72,7 +72,7 @@
                           <td>{{row.tanggal}}</td>
                           <td><div class="badge badge-primary">{{row.status}}</div></td>
                           <td>
-                            <a href="" class="btn btn-warning">edit</a>
+                            <a href="{% url 'edit_pengaduan' row.id %}" class="btn btn-warning">edit</a>
                             <a href="{% url 'surat' row.pk %}" class="btn btn-secondary">cetak</a>
                           </td>
                         </tr>

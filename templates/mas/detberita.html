@@ -23,14 +23,14 @@
     <div class="section-body m-3">
            
         <h2 class="section-title">{{posts.judul}}</h2>
-        <p class="section-lead">{{posts.tanggal}}</p>            
+        <p class="section-lead">{{posts.tanggal}}</p> <br>           
        
           <div class="card-header">
             <img src= "{{posts.gambar.url}}" alt="" style="max-width:500px ;">                
-          </div>
+          </div> <br>
           <div class="card-body">
             <p>{{posts.isi}}</p>
-            <a href="{{posts.sumber}}">Sumber : {{posts.sumber}}</a>
+            <p>Sumber berita: <a href="{{posts.sumber}}"> {{posts.sumber}}</a></p>
           </div> 
           
         

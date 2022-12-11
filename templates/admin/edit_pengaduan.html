@@ -1,0 +1,86 @@
+{% extends 'layout/stis.html' %}
+{% load static %}
+{% block content %}
+
+    <ul class="sidebar-menu">
+        <li class="menu-header">Dashboard</li>
+        <li><a class="nav-link" href="{% url 'dashboard_admin'%}"><i class="fas fa-fire"></i><span>Dashboard</span></a></li>
+
+        <li class="menu-header">Pengaduan</li>
+        <li class="dropdown active">
+            <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Data
+                    Pengaduan</span></a>
+            <ul class="dropdown-menu">
+                <li><a class="nav-link" href="{% url 'pengaduan_admin'%}">pengaduan masyarakat</a></li>
+                <li><a class="nav-link" href="{% url 'kategori_admin'%}">kategori pengaduan</a></li>
+                <li><a class="nav-link" href="{% url 'konfirmasi_admin'%}">pengaduan terkonfirmasi</a></li>
+                <li><a class="nav-link" href="{% url 'tolak'%}">pengaduan tertolak</a></li>
+              </ul>
+            </li>
+
+        <li class="menu-header">Berita</li>
+        <li><a href="{% url 'berita_admin'%}" class="nav-link"><i class="fas fa-th-large"></i> <span>Data Berita</span></a>
+        </li>
+    </ul>
+
+</aside>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+            <h1>Edit Pengaduan</h1>
+        </div>
+        <div class="section-body">           
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+            <div class="card">
+                <div class="card-header">
+                    <img src="{{posts.foto.url}}"  style="max-width:500px ;" alt="">
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="nama">nama</label>
+                        <input type="text" id="nama" name="nama" class="form-control" value="{{posts.nama}}">
+                    </div>               
+                    <div class="form-group">
+                        <label for="jalan">jalan</label>
+                        <input type="text" id="jalan" name="jalan" class="form-control" value="{{posts.jalan}}">
+                    </div>              
+                    <div class="form-group">
+                        <label for="keterangan">keterangan</label>
+                        <input type="text" id="keterangan" name="keterangan" class="form-control" value="{{posts.keterangan}}">
+                    </div>
+                    <input type="hidden" id="kecamatan" name="kecamatan" class="form-control" value="{{posts.kecamatan}}" >
+                    <input type="hidden" id="kategori_id" name="kategori_id" class="form-control" value="{{posts.kategori_id_id}}" >
+                    <input type="hidden" id="pengadu_id" name="pengadu_id" class="form-control" value="{{posts.pengadu_id_id}}" >
+                    <input type="hidden" id="foto" name="foto" accept="image/*" class="form-control" value="{{posts.foto}}">
+                    
+                    <div class="form-group">                       
+                        <div class="selectgroup w-100">
+                          <label class="selectgroup-item">
+                            <input type="radio" id="status" name="status" value="konfirmasi" class="selectgroup-input">
+                            <span class="selectgroup-button">konfirmasi</span>
+                          </label>
+                          <label class="selectgroup-item">
+                            <input type="radio" id="status" name="status" value="tolak" class="selectgroup-input">
+                            <span class="selectgroup-button">tolak</span>
+                          </label>                          
+                        </div>
+                    </div>
+                </div>
+                      
+                <div class="card-footer text-right">
+                    <button class="btn btn-primary mr-1" type="submit">simpan</button>
+                    <a href="{% url 'pengaduan_admin'%}" class="btn btn-secondary">Kembali</a>                        
+                </div>
+            </div>                   
+                
+             </form>
+        </div>
+
+    </section>
+</div>
+
+{% endblock content %}

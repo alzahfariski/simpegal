@@ -22,18 +22,20 @@
     
     <div class="section-body m-3">
            
-        <h2 class="section-title">{{posts.nama}}</h2>
-        <p class="section-lead">{{posts.tanggal}}</p>            
+        <h1 class="section-title">{{posts.nama}}</h1>
+        <p class="section-lead">{{posts.tanggal}}</p>   <br>         
        
           <div class="card-header">
             <img src= "{{posts.foto.url}}" alt="" style="max-width:500px ;">                
           </div>
+          <br>
+
           <div class="card-body">
-            <p>{{posts.jalan}}</p>
-            <p>{{posts.kecamatan}}</p>
-            <p>{{posts.keterangan}}</p>
-            <p>{{posts.kategori_id}}</p>
-            <p>{{posts.pengadu_id}}</p>
+            <p>Jalan : {{posts.jalan}}</p>
+            <p>Kecamatan : {{posts.kecamatan}}</p>
+            <p>Keterangan : {{posts.keterangan}}</p>
+            <p>Kategori Aduan : {{posts.kategori_id}}</p>
+            <p>Nama pengaju aduan : {{posts.pengadu_id}}</p>
            
           </div> 
           

@@ -185,13 +185,37 @@ def detail_pengaduan(request, id):
                 form.save()
                 return redirect ('pengaduan_admin') 
         context={
-            'page_title':'detail berita',
+            'page_title':'detail pengaduan',
             'form':form,
             'posts':posts,
         }
         return render(request, 'admin/detail_pengaduan.html',context)
     else:
         return render(request,'eror_404.html') 
+
+def edit_pengaduan(request, id):
+    if request.user.is_staff == 1:
+        posts = models.aduan.objects.get(id =id)
+        data = {
+            'nama':posts.nama,
+            'jalan':posts.jalan,
+            'kecamatan':posts.kecamatan,
+            'keterangan':posts.keterangan,
+            'status':posts.status,
+        }
+        form = postaduan(request.POST or None, request.FILES or None, initial=data, instance=posts)
+        if request.method =='POST':
+            if form.is_valid():                               
+                form.save()
+                return redirect ('pengaduan_admin') 
+        context={
+            'page_title':'edit pengaduan',
+            'form':form,
+            'posts':posts,
+        }
+        return render(request, 'admin/edit_pengaduan.html',context)
+    else:
+        return render(request,'eror_404.html')
 
 def hapusaduan(request, delete_id):    
     models.aduan.objects.filter(id = delete_id).delete()        

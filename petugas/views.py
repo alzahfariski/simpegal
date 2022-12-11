@@ -191,7 +191,11 @@ def detail_pengaduan(request, id):
         }
         return render(request, 'admin/detail_pengaduan.html',context)
     else:
-        return render(request,'eror_404.html')        
+        return render(request,'eror_404.html') 
+
+def hapusaduan(request, delete_id):    
+    models.aduan.objects.filter(id = delete_id).delete()        
+    return redirect ('tolak')       
 
 def konfirmasi(request):
     if request.user.is_staff == 1:

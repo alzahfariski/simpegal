@@ -3,16 +3,47 @@
 <head>
     <meta charset="utf-8">
     <title>
-        pdf test
+        {{aduan}}
     </title>
 </head>
 <body>
-    {{aduan}}
+   <center>
+    <h1>
+        Pemerintah Daerah Kota Bengkulu
+        <br>
+        Surat Pengaduan Gangguan Lalu Lintas Masyarakat Kota Bengkulu
+    </h1>
+   </center> 
     <hr>
-    {{aduan.keterangan}}
-    <br>
+    <p>Tanggal aduan : {{aduan.tanggal}}</p>
+    <h2>{{aduan}} - {{aduan.kecamatan}}</h2>
+    <h3>keterangan aduan: {{aduan.keterangan}} </h3>
+    <h4>jalan : {{aduan.jalan}}</h4>
+    <hr>
     <img src="{{aduan.foto.path}}" alt="" >
     <hr>
-    <img src="static/asset/admin.jpg" alt="" >
+    <p>Kepada Yth,</p>
+    <p>Dinas Instansi Terkait</p>
+
+    <p> Dengan hormat,</p>
+    <p>
+        Dengan ini kami beritahukan bahwa ada Gangguan lalu lintas dari masyarakat Kota Bengkulu dengan rincian gangguan lalu lintas sebagai berikut :
+        <br>
+        Nama Pelapor		 : {{aduan.pengadu_id}} <br>
+        Gangguan lalu lintas 	 :{{aduan.kategori_id}} <br>
+    
+        Bersamaan dengan surat ini juga telah kami lampirkan foto gangguan lalu lintas berdasarkan yang sebenarnya. <br>
+    
+        Demikian surat laporan pengaduan kami buat mohon untuk ditinjak lanjuti. <br>
+        Atas perhatian dan kerja sama Bapak kami sampaikan terima kasih. <br>
+    </p>
+<br><br>
+    <p>
+        Hormat kami, <br>
+
+        PETUGAS SIMPEGAL
+    </p>
+    
+    
 </body>
 </html>

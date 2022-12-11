@@ -1,12 +1,62 @@
 from multiprocessing import context
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect, HttpResponse, reverse
+from django.shortcuts import render, redirect, HttpResponse, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from . import models
 from .forms import postartikel,postkategori, postaduan
 from django.views.generic import ListView
 from django.views.generic.edit import DeleteView, CreateView
 from django.urls import reverse_lazy
+
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+
+# cetak pdf
+def cetak_surat(request, *args, **kwargs):
+    pk = kwargs.get('pk')
+    aduan = get_object_or_404(models.aduan, pk=pk)
+
+    template_path = 'admin/surat.html'
+    context = {'aduan': aduan}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    # kalo download
+    # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    # kalo display
+    response['Content-Disposition'] = 'filename="report.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+       html, dest=response)
+    # if error then show some funny view
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
+
+#coba pdf
+def render_pdf_view(request):
+    template_path = 'admin/tespdf.html'
+    context = {'myvar': 'this is your template context'}
+    # Create a Django response object, and specify content_type as pdf
+    response = HttpResponse(content_type='application/pdf')
+    # kalo download
+    # response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+    # kalo display
+    response['Content-Disposition'] = 'filename="report.pdf"'
+    # find the template and render it.
+    template = get_template(template_path)
+    html = template.render(context)
+
+    # create a pdf
+    pisa_status = pisa.CreatePDF(
+       html, dest=response)
+    # if error then show some funny view
+    if pisa_status.err:
+       return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    return response
 
 # Create your views here.
 def dashboard_admin(request): 

@@ -18,6 +18,9 @@ urlpatterns = [
     path('pengaduan/', views.pengaduan,name='pengaduan_admin'),
     path('pengaduan/detail_pengaduan/<int:id>', views.detail_pengaduan, name='detail_pengaduan'),
     path('tolak/',views.tolak, name='tolak'),
+
+    path('tespdf/', views.render_pdf_view, name='tespdf'),
+    path('surat/<pk>', views.cetak_surat, name='surat')
     
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
